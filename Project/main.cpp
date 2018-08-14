@@ -41,6 +41,8 @@ int main()
 			cout << endl << "------------------------------------------" << endl;
 		}
 		
+
+
 		cout << "player2 turn" << endl;
 		cin >> player2a;
 		cin >> player2b;
