@@ -7,13 +7,9 @@ void PrintWinner(Player* p1, Player* p2);
 int main()
 {
 	Basket b;
-	Player p1;
-	Player p2;
+	Player p1, p2;
 
 	SetGame(&b);
-
-	p1.turn = "player1 turn";
-	p2.turn = "player2 turn";
 
 	Play(&p1, &p2, &b);
 	PrintWinner(&p1, &p2);
