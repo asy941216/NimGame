@@ -16,6 +16,7 @@ void SetGame(Basket* b)
 
 	cout << endl;
 
+	b->total = 0;
 	for (int j = 0; j < b->basketNum; j++)
 		b->total += b->basket[j];
 }

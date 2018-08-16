@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Play.cpp" />
+    <ClCompile Include="PlayWithPlayer.cpp" />
+    <ClCompile Include="SelectStones.cpp" />
+    <ClCompile Include="PrintGame.cpp" />
     <ClCompile Include="SetGame.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PrintWinner.cpp" />
-    <ClCompile Include="RemoveStones.cpp" />
+    <ClCompile Include="TakeStones.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
