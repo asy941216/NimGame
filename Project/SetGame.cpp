@@ -12,6 +12,7 @@ void SetGame(Basket* b)
 		cout << endl << i + 1 << "번째 박스에 넣을 돌의 갯수 : ";
 		cin >> b->rockNum;
 		b->basket[i] = b->rockNum;
+		b->status = b->status ^ b->basket[i];
 	}
 
 	cout << endl;

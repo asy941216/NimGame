@@ -1,12 +1,12 @@
 #include "main.h"
 
-void TakeStones(Player* p, Basket* b)
+void BotTakesStones(Player* p, Basket* b)
 {
 	PrintGame(b);
 
 	while (1)
 	{
-		SelectStones(p);
+		BotSelectsStones(p, b);
 
 		if (b->basket[p->selBasket - 1] >= p->selStone && p->selStone < b->total)
 		{

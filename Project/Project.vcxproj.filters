@@ -33,7 +33,16 @@
     <ClCompile Include="PlayWithPlayer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="TakeStones.cpp">
+    <ClCompile Include="PlayWithBot.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerTakeStones.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BotSelectsStones.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BotTakesStones.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

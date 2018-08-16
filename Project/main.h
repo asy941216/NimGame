@@ -18,11 +18,15 @@ struct Basket
 	int* basket;
 	int rockNum = 0;
 	int total = 0;
+	int status = 0;
 };
 
-void TakeStones(Player* p, Basket* b);
 void SetGame(Basket* b);
-void PlayWithPlayer(Player* p1, Player* p2, Basket* b);
-void PrintWinner(Player* p1, Player* p2);
 void PrintGame(Basket* b);
+void PlayWithPlayer(Player* p1, Player* p2, Basket* b);
 void SelectStones(Player* p);
+void PlayerTakesStones(Player* p, Basket* b);
+void PrintWinner(Player* p1, Player* p2, int mode);
+void PlayWithBot(Player* p1, Player* p2, Basket* b);
+void BotSelectsStones(Player* p, Basket* b);
+void BotTakesStones(Player* p, Basket* b);
