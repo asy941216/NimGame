@@ -21,5 +21,6 @@ void PlayWithBot(Player* p1, Player* p2, Basket* b)
 			p2->win++;
 			break;
 		}
+		cout << "Bot이 " << p2-> selBasket << "번째 바구니에서 " << p2->selStone << "개의 돌을 가져감" << endl;
 	}
 }
