@@ -3,30 +3,31 @@
 void BotSelectsStones(Player* p, Basket* b)
 {
 	int tmp = 0;
-
-	if(b->status == 0)
+	
+	if (b->status != 0)
 	{
-		for (int j = 0; j < b->basketNum; j++)
+		for (int i = 0; i < b->basketNum; i++)
 		{
-			if ((tmp = b->status ^ b->basket[j]) < b->basket[j])
+			
+			if ((tmp = b->status ^ b->basket[i]) < b->basket[i])
 			{
-				p->selBasket = j + 1;
-				p->selStone = b->basket[j] - tmp;
+				p->selBasket = i + 1;
+				p->selStone = b->basket[i] - tmp;
 				return;
 			}
 		}
 	}
+
 	else
 	{
-		for (int i = 0; i < b->basketNum; i++)
+		for (int k = 0; k < b->basketNum; k++)
 		{
-			if (b->basket[i])
+			if (b->basket[k])
 			{
-				p->selBasket = i + 1;
+				p->selBasket = k + 1;
 				p->selStone = 1;
 				return;
 			}
 		}
 	}
-	
 }
