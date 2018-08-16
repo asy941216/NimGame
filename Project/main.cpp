@@ -28,14 +28,21 @@ void RemoveStones(Player* p, Basket* b)
 		cout << endl << "------------------------------------------" << endl;
 	}
 
-	cout << p->turn << endl;
-	cin >> p->selBasket;
-	cin >> p->selRock;
-	p->win++;
-	if (b->basket[p->selBasket - 1] >= p->selRock && p->selRock < b->total)
+	while (1)
 	{
-		b->basket[p->selBasket - 1] -= p->selRock;
-		b->total -= p->selRock;
+		cout << p->turn << endl;
+		cin >> p->selBasket;
+		cin >> p->selRock;
+		p->win++;
+	
+		if (b->basket[p->selBasket - 1] >= p->selRock && p->selRock < b->total)
+		{
+			b->basket[p->selBasket - 1] -= p->selRock;
+			b->total -= p->selRock;
+			break;
+		}
+		else
+			cout << "°ªÀÌ Àß¸øµÊ" << endl;
 	}
 
 	system("cls");
