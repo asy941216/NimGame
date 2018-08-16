@@ -1,67 +1,36 @@
-#include <iostream>
-#include <stdlib.h>
-using namespace std;
+#include "main.h"
 
 int main()
 {
-	int basket[3] = { 3,5,7 };
+	Basket b;
+	Player p1, p2;
 
-	int player1a = 0;
-	int player1b = 0;
+	int mode = 0;
+	cout << "모드 선택: 1. Player VS Player  2. Player VS Bot" << endl;
+	cin >> mode;
 
-	int player2a = 0;
-	int player2b = 0;
+	int roundNumber = 0;
+	cout << "라운드 수 : ";
+	cin >> roundNumber;
+	cout << endl;
 
-	int win = 0;
-
-	while (1)
+	while (!(roundNumber == 0 || p1.win > p2.win + roundNumber || p2.win > p1.win + roundNumber))
 	{
-		for (int i = 0; i < 3; i++)
+		SetGame(&b);
+		if (mode == 1)
 		{
-			for (int j = 0; j < basket[i]; j++)
-				cout << "* ";
-
-			cout << endl << "------------------------------------------" << endl;
+			cout << "남은 라운드 수 : " << roundNumber << endl << "Player1 : Player2" << endl << p1.win << " : " << p2.win << endl;
+			PlayWithPlayer(&p1, &p2, &b);
 		}
-
-
-
-		cout << "player1 turn" << endl;
-		cin >> player1a;
-		cin >> player1b;
-		win = win++;
-		if (basket[player1a - 1] >= player1b)
-			basket[player1a - 1] -= player1b;
-
-		system("cls");
-
-		for (int i = 0; i < 3; i++)
+		else if (mode == 2)
 		{
-			for (int j = 0; j < basket[i]; j++)
-				cout << "* ";
-
-			cout << endl << "------------------------------------------" << endl;
+			cout << "남은 라운드 수 : " << roundNumber << endl << "Player : Bot" << endl << p1.win << " : " << p2.win << endl;
+			PlayWithBot(&p1, &p2, &b);
 		}
-		
-
-
-		cout << "player2 turn" << endl;
-		cin >> player2a;
-		cin >> player2b;
-		win = win--;
-		if (basket[player2a - 1] >= player2b)
-			basket[player2a - 1] -= player2b;
-
-		system("cls");
-
-		if (basket[0] + basket[1] + basket[2] == 1)
-			break;
+		roundNumber--;
 	}
 
-	if (win > 0)
-		cout << "player1 win" << endl;
-	else
-		cout << "player2 win" << endl;
+	PrintWinner(&p1, &p2, mode);
 
 	return 0;
 }

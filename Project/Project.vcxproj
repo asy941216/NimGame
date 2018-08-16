@@ -139,7 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BotSelectsStones.cpp" />
+    <ClCompile Include="BotTakesStones.cpp" />
+    <ClCompile Include="PlayWithBot.cpp" />
+    <ClCompile Include="PlayWithPlayer.cpp" />
+    <ClCompile Include="SelectStones.cpp" />
+    <ClCompile Include="PrintGame.cpp" />
+    <ClCompile Include="SetGame.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PrintWinner.cpp" />
+    <ClCompile Include="PlayerTakeStones.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
