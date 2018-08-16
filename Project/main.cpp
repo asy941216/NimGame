@@ -2,63 +2,76 @@
 #include <stdlib.h>
 using namespace std;
 
+struct Player
+{
+	int selBasket = 0;
+	int selRock = 0;
+	int win = 0;
+	const char* turn;
+};
+
+struct Basket
+{
+	int basketNum = 0;
+	int* basket;
+	int rockNum = 0;
+	int total = 0;
+};
+
+void RemoveStones(Player p, Basket b)
+{
+	for (int i = 0; i < b.basketNum; i++)
+	{
+		for (int j = 0; j < b.basket[i]; j++)
+			cout << "* ";
+
+		cout << endl << "------------------------------------------" << endl;
+	}
+
+	cout << p.turn << endl;
+	cin >> p.selBasket;
+	cin >> p.selRock;
+	p.win++;
+	if (b.basket[p.selBasket - 1] >= p.selRock && p.selRock < b.total)
+	{
+		b.basket[p.selBasket - 1] -= p.selRock;
+		b.total -= p.selRock;
+	}
+
+	system("cls");
+}
+
 int main()
 {
-	int basket[3] = { 3,5,7 };
+	Basket b;
+	b.basketNum = 0;
+	cin >> b.basketNum;
 
-	int player1a = 0;
-	int player1b = 0;
+	b.basket = (int*)malloc(sizeof(int)*b.basketNum);
+	b.rockNum = 0;
 
-	int player2a = 0;
-	int player2b = 0;
+	for (int i = 0; i < b.basketNum; i++)
+	{
+		cin >> b.rockNum;
+		b.basket[i] = b.rockNum;
+	}
 
-	int win = 0;
+	Player p1;
+	Player p2;
+
+	p1.turn = "player1 turn";
+	p2.turn = "player2 turn";
+
+	for (int j = 0; j < b.basketNum; j++)
+		b.total += b.basket[j];
 
 	while (1)
 	{
-		for (int i = 0; i < 3; i++)
-		{
-			for (int j = 0; j < basket[i]; j++)
-				cout << "* ";
-
-			cout << endl << "------------------------------------------" << endl;
-		}
-
-
-
-		cout << "player1 turn" << endl;
-		cin >> player1a;
-		cin >> player1b;
-		win = win++;
-		if (basket[player1a - 1] >= player1b)
-			basket[player1a - 1] -= player1b;
-
-		system("cls");
-
-		for (int i = 0; i < 3; i++)
-		{
-			for (int j = 0; j < basket[i]; j++)
-				cout << "* ";
-
-			cout << endl << "------------------------------------------" << endl;
-		}
-		
-
-
-		cout << "player2 turn" << endl;
-		cin >> player2a;
-		cin >> player2b;
-		win = win--;
-		if (basket[player2a - 1] >= player2b)
-			basket[player2a - 1] -= player2b;
-
-		system("cls");
-
-		if (basket[0] + basket[1] + basket[2] == 1)
-			break;
+		RemoveStones(p1, b);
+		RemoveStones(p2, b);
 	}
 
-	if (win > 0)
+	if (p1.win > p2.win)
 		cout << "player1 win" << endl;
 	else
 		cout << "player2 win" << endl;
