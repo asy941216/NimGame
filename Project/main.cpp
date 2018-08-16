@@ -18,24 +18,24 @@ struct Basket
 	int total = 0;
 };
 
-void RemoveStones(Player p, Basket b)
+void RemoveStones(Player* p, Basket* b)
 {
-	for (int i = 0; i < b.basketNum; i++)
+	for (int i = 0; i < b->basketNum; i++)
 	{
-		for (int j = 0; j < b.basket[i]; j++)
+		for (int j = 0; j < b->basket[i]; j++)
 			cout << "* ";
 
 		cout << endl << "------------------------------------------" << endl;
 	}
 
-	cout << p.turn << endl;
-	cin >> p.selBasket;
-	cin >> p.selRock;
-	p.win++;
-	if (b.basket[p.selBasket - 1] >= p.selRock && p.selRock < b.total)
+	cout << p->turn << endl;
+	cin >> p->selBasket;
+	cin >> p->selRock;
+	p->win++;
+	if (b->basket[p->selBasket - 1] >= p->selRock && p->selRock < b->total)
 	{
-		b.basket[p.selBasket - 1] -= p.selRock;
-		b.total -= p.selRock;
+		b->basket[p->selBasket - 1] -= p->selRock;
+		b->total -= p->selRock;
 	}
 
 	system("cls");
@@ -67,8 +67,15 @@ int main()
 
 	while (1)
 	{
-		RemoveStones(p1, b);
-		RemoveStones(p2, b);
+		RemoveStones(&p1, &b);
+
+		if (b.total == 1)
+			break;
+
+		RemoveStones(&p2, &b);
+
+		if (b.total == 1)
+			break;
 	}
 
 	if (p1.win > p2.win)
