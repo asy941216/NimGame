@@ -1,6 +1,6 @@
 #include "main.h"
 
-void PrintWinner(Player* p1, Player* p2, int mode)
+void PrintWinner(Player* p1, Player* p2, int mode, Basket* b)
 {
 	if (mode == 1)
 	{
@@ -17,4 +17,6 @@ void PrintWinner(Player* p1, Player* p2, int mode)
 		else
 			cout << "Bot win" << endl;
 	}
+
+	PrintGame(b);
 }

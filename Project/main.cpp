@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <Windows.h>
 int main()
 {
 	Basket b;
@@ -14,23 +14,27 @@ int main()
 	cin >> roundNumber;
 	cout << endl;
 
+	system("cls");
+
 	while (!(roundNumber == 0 || p1.win > p2.win + roundNumber || p2.win > p1.win + roundNumber))
 	{
 		SetGame(&b);
 		if (mode == 1)
 		{
 			cout << "남은 라운드 수 : " << roundNumber << endl << "Player1 : Player2" << endl << p1.win << " : " << p2.win << endl;
+			Sleep(2000);
 			PlayWithPlayer(&p1, &p2, &b);
 		}
 		else if (mode == 2)
 		{
 			cout << "남은 라운드 수 : " << roundNumber << endl << "Player : Bot" << endl << p1.win << " : " << p2.win << endl;
+			Sleep(2000);
 			PlayWithBot(&p1, &p2, &b);
 		}
 		roundNumber--;
 	}
 
-	PrintWinner(&p1, &p2, mode);
+	PrintWinner(&p1, &p2, mode, &b);
 
 	return 0;
 }

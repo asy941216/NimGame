@@ -26,7 +26,7 @@ void PrintGame(Basket* b);
 void PlayWithPlayer(Player* p1, Player* p2, Basket* b);
 void SelectStones(Player* p);
 void PlayerTakesStones(Player* p, Basket* b);
-void PrintWinner(Player* p1, Player* p2, int mode);
+void PrintWinner(Player* p1, Player* p2, int mode, Basket* b);
 void PlayWithBot(Player* p1, Player* p2, Basket* b);
 void BotSelectsStones(Player* p, Basket* b);
 void BotTakesStones(Player* p, Basket* b);
