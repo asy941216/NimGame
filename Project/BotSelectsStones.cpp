@@ -4,51 +4,19 @@ void BotSelectsStones(Player* p, Basket* b)
 {
 	int tmp = 0;
 
-	int high = 0;
-	int savehigh = 0;
-	int low = 0;
-	int savelow = 0;
-	int zero = 0;
+	ForBot bot;
 
 ///////////////////////////////////////////////////////////////////// Bot이 한 수로 게임을 끝낼 수 있을 때의 행동 
-	for (int i = 0; i < b->basketNum; i++)
+	bot.Init();
+	while (1)
 	{
-		if (b->basket[i] >= 2)
-		{
-			high++;
-			savehigh = i;
-		}
-		else if (b->basket[i] == 1)
-		{
-			low++;
-			savelow = i;
-		}
-		else if (b->basket[i] == 0)
-			zero++;
+		bot.ActToWin(p, b);
+		if (bot.high <= bot.low)
+			return;
+		else
+			break;
 	}
-
-
-	if (high == 1 && low % 2 == 1)
-	{
-		p->selBasket = savehigh + 1;
-		p->selStone = b->basket[savehigh];
-		return;
-	}
-
-	else if (high == 1 && low % 2 == 0)
-	{
-		p->selBasket = savehigh + 1;
-		p->selStone = b->basket[savehigh] - 1;
-		return;
-	}
-
-	else if (high == 0 && low == 2)
-	{
-		p->selBasket = savelow + 1;
-		p->selStone = b->basket[savelow];
-		return;
-	}
-	///////////////////////////////////////////////////////////////////// Bot이 게임을 유리하게 이끌기 위한 행동 
+///////////////////////////////////////////////////////////////////////// Bot이 게임을 유리하게 이끌기 위한 행동 
 	if (b->status != 0)
 	{
 		for (int i = 0; i < b->basketNum; i++)
@@ -68,12 +36,12 @@ void BotSelectsStones(Player* p, Basket* b)
 
 	else
 	{
-		for (int k = 0; k < b->basketNum; k++)
+		for (int j = 0; j < b->basketNum; j++)
 		{
-			if (b->basket[k])
+			if (b->basket[j])
 			{
-				p->selBasket = k + 1;
-				p->selStone = b->basket[k] - 1;
+				p->selBasket = j + 1;
+				p->selStone = b->basket[j] - 1;
 				return;
 			}
 		}

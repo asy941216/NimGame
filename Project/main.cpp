@@ -6,13 +6,34 @@ int main()
 	Player p1, p2;
 
 	int mode = 0;
-	cout << "모드 선택: 1. Player VS Player  2. Player VS Bot" << endl;
-	cin >> mode;
-
 	int roundNumber = 0;
-	cout << "라운드 수 : ";
-	cin >> roundNumber;
-	cout << endl;
+
+	while (1)
+	{
+		cout << "모드 선택: 1. Player VS Player  2. Player VS Bot" << endl;
+		cin >> mode;
+		if (mode > 2 || mode < 1)
+			cout << "값이 잘못됨." << endl;
+		
+		else
+		{
+			cout << endl;
+			break;
+		}
+	}
+
+	while (1)
+	{
+		cout << "라운드 수 : ";
+		cin >> roundNumber;
+		if (roundNumber > 0)
+		{
+			cout << endl;
+			break;
+		}
+		else
+			cout << "값이 잘못됨." << endl;
+	}
 
 	system("cls");
 

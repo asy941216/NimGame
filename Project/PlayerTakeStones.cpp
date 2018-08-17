@@ -8,7 +8,7 @@ void PlayerTakesStones(Player* p, Basket* b)
 	{
 		SelectStones(p);
 
-		if (b->basket[p->selBasket - 1] >= p->selStone && p->selStone < b->total && p->selStone > 0)
+		if (p->selBasket <= b->basketNum && p->selBasket > 0 && b->basket[p->selBasket - 1] >= p->selStone && p->selStone < b->total && p->selStone > 0)
 		{
 			b->status = b->status ^ (b->basket[p->selBasket - 1] ^ (b->basket[p->selBasket - 1] - p->selStone));
 			b->basket[p->selBasket - 1] -= p->selStone;
