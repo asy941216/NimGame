@@ -26,9 +26,26 @@ void BotSelectsStones(Player* p, Basket* b)
 			zero++;
 	}
 
-	if (zero >= b->basketNum - 3)
-		if (ActToWin(p, b, high, savehigh, low, savelow))
-			return;
+	if (high == 1 && low%2 == 1)
+	{
+		p->selBasket = savehigh + 1;
+		p->selStone = b->basket[savehigh];
+		return;
+	}
+
+	else if (high == 1 && low%2 == 0)
+	{
+		p->selBasket = savehigh + 1;
+		p->selStone = b->basket[savehigh] - 1;
+		return;
+	}
+
+	else if (high == 0 && low == 2)
+	{
+		p->selBasket = savelow + 1;
+		p->selStone = b->basket[savelow];
+		return;
+	}
 
 	if (b->status != 0)
 	{

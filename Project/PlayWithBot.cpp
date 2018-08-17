@@ -10,6 +10,10 @@ void PlayWithBot(Player* p1, Player* p2, Basket* b)
 		BotTakesStones(p2, b);
 		if (b->total == 1)
 		{
+			cout << "Bot이 " << p2->selBasket << "번째 바구니에서 " << p2->selStone << "개의 돌을 가져감" << endl;
+			PrintGame(b);
+			Sleep(2000);
+			cout << endl << "Bot : You Cannot Beat Me!!!" << endl << endl;
 			p2->win++;
 			break;
 		}

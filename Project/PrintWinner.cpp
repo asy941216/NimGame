@@ -17,6 +17,4 @@ void PrintWinner(Player* p1, Player* p2, int mode, Basket* b)
 		else
 			cout << "Bot win" << endl;
 	}
-
-	PrintGame(b);
 }
