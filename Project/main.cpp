@@ -18,6 +18,7 @@ int main()
 
 	while (!(roundNumber == 0 || p1.win > p2.win + roundNumber || p2.win > p1.win + roundNumber))
 	{
+		b.status = 0;
 		SetGame(&b);
 		if (mode == 1)
 		{

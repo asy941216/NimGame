@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActToWin.cpp" />
     <ClCompile Include="BotSelectsStones.cpp" />
     <ClCompile Include="BotTakesStones.cpp" />
     <ClCompile Include="PlayWithBot.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="PlayerTakeStones.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActToWin.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
