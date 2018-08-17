@@ -10,6 +10,7 @@ void BotSelectsStones(Player* p, Basket* b)
 	int savelow = 0;
 	int zero = 0;
 
+///////////////////////////////////////////////////////////////////// Bot이 한 수로 게임을 끝낼 수 있을 때의 행동 
 	for (int i = 0; i < b->basketNum; i++)
 	{
 		if (b->basket[i] >= 2)
@@ -26,14 +27,15 @@ void BotSelectsStones(Player* p, Basket* b)
 			zero++;
 	}
 
-	if (high == 1 && low%2 == 1)
+
+	if (high == 1 && low % 2 == 1)
 	{
 		p->selBasket = savehigh + 1;
 		p->selStone = b->basket[savehigh];
 		return;
 	}
 
-	else if (high == 1 && low%2 == 0)
+	else if (high == 1 && low % 2 == 0)
 	{
 		p->selBasket = savehigh + 1;
 		p->selStone = b->basket[savehigh] - 1;
@@ -46,7 +48,7 @@ void BotSelectsStones(Player* p, Basket* b)
 		p->selStone = b->basket[savelow];
 		return;
 	}
-
+	///////////////////////////////////////////////////////////////////// Bot이 게임을 유리하게 이끌기 위한 행동 
 	if (b->status != 0)
 	{
 		for (int i = 0; i < b->basketNum; i++)
