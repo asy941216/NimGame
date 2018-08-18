@@ -40,7 +40,12 @@ void BotSelectsStones(Player* p, Basket* b)
 			if (b->basket[j])
 			{
 				p->selBasket = j + 1;
+
+				if(b->basket[j] != 1)
 				p->selStone = b->basket[j] - 1;
+
+				else
+					p->selStone = b->basket[j];
 				return;
 			}
 		}
