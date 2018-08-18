@@ -1,6 +1,6 @@
 #include "main.h"
 
-void ForBot::ActToWin(Player* p, Basket* b)
+int ForBot::ActToWin(Player* p, Basket* b)
 {
 	for (int i = 0; i < b->basketNum; i++)
 	{
@@ -23,22 +23,24 @@ void ForBot::ActToWin(Player* p, Basket* b)
 	{
 		p->selBasket = savehigh + 1;
 		p->selStone = b->basket[savehigh];
-		return;
+		return 1;
 	}
 
 	else if (high == 1 && low % 2 == 0)
 	{
 		p->selBasket = savehigh + 1;
 		p->selStone = b->basket[savehigh] - 1;
-		return;
+		return 1;
 	}
 
 	else if (high == 0 && low == 2)
 	{
 		p->selBasket = savelow + 1;
 		p->selStone = b->basket[savelow];
-		return;
+		return 1;
 	}
+
+	return 0;
 }
 
 void ForBot::Init()

@@ -10,8 +10,7 @@ void BotSelectsStones(Player* p, Basket* b)
 	bot.Init();
 	while (1)
 	{
-		bot.ActToWin(p, b);
-		if (bot.high <= bot.low)
+		if (bot.ActToWin(p, b))
 			return;
 		else
 			break;

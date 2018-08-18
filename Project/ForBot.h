@@ -10,6 +10,6 @@ public:
 	int low = 0;
 	int savelow = 0;
 	int zero = 0;
-	void ActToWin(Player* p, Basket* b);
+	int ActToWin(Player* p, Basket* b);
 	void Init();
 };
