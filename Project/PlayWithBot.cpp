@@ -23,6 +23,9 @@ void PlayWithBot(Player* p1, Player* p2, Basket* b)
 		PlayerTakesStones(p1, b);
 		if (b->total == 1)
 		{
+			PrintGame(b);
+			Sleep(2000);
+			cout << endl << "Bot : Oh! No!!" << endl << endl;
 			p1->win++;
 			break;
 		}

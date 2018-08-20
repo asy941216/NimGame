@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BotPlay.cpp" />
     <ClCompile Include="BotSelectsStones.cpp" />
     <ClCompile Include="BotTakesStones.cpp" />
     <ClCompile Include="ForBot.cpp" />
